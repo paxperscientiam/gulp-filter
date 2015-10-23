@@ -2,7 +2,7 @@
 
 > Filter files in a [vinyl](https://github.com/wearefractal/vinyl) stream
 
-Enables you to work on a subset of the original files by filtering them using globbing. When you're done and want all the original files back you just use the `restore` stream.
+Enables you to work on a subset of the original files by filtering them using globbing. When you're done and want all the original files back you just use the `restore` stream. By enabling the restore stream, you declare your intent to effectively consume the restore stream. Since this module respects back pressure, your filter stream may never end if you do not consume the restored one.
 
 
 ## Install
@@ -36,7 +36,7 @@ gulp.task('default', function () {
 });
 ```
 
-### Restoring filtered files
+### Restoring filtered files 
 
 ```js
 var gulp = require('gulp');
